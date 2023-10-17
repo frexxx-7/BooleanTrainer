@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace BooleanTrainer.Forms
 {
-    public partial class Main : Form
+    public partial class Theory : Form
     {
-        public static string login;
-        private string id;
-        public Main(string id)
+        private string idUser;
+        public Theory(string idUser)
         {
             InitializeComponent();
-            this.id = id;
+            this.idUser = idUser;
+        }
+
+        private void ReturnButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Menu(idUser).Show();
         }
     }
 }

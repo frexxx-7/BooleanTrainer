@@ -43,8 +43,8 @@ namespace BooleanTrainer
 
                     while (reader.Read())
                     {
-                        Main main = new Main(reader[0].ToString());
-                        Main.login = reader[1].ToString();
+                        Forms.Menu main = new Forms.Menu(reader[0].ToString());
+                        Forms.Menu.login = reader[1].ToString();
                         this.Hide();
                         main.Show();
                         MessageBox.Show("Добро пожаловать");
