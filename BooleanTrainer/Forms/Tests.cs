@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace BooleanTrainer.Forms
 {
-    public partial class Testscs : Form
+    public partial class Tests : Form
     {
-        public Testscs()
+        private string idUser;
+        public Tests(string idUser)
         {
             InitializeComponent();
+            this.idUser = idUser;
         }
     }
 }

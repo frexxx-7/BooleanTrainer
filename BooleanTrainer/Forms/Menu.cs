@@ -29,5 +29,17 @@ namespace BooleanTrainer.Forms
         {
             Application.Exit();
         }
+
+        private void TheoryButton_Click(object sender, EventArgs e)
+        {
+            new Theory(id).Show();
+            this.Hide();
+        }
+
+        private void TestsButton_Click(object sender, EventArgs e)
+        {
+            new Tests(id).Show();
+            this.Hide();
+        }
     }
 }

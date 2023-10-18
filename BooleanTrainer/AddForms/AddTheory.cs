@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace BooleanTrainer.AddForms
 {
     public partial class AddTheory : Form
     {
+        Image image;
         public AddTheory()
         {
             InitializeComponent();
@@ -26,26 +28,7 @@ namespace BooleanTrainer.AddForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            DB db = new DB();
-
-            MySqlCommand command = new MySqlCommand($"INSERT into theory (header, content, image) values(@header, @content, @image)", db.getConnection());
-            command.Parameters.AddWithValue("@name", HeaderLabel.Text);
-            command.Parameters.AddWithValue("@speciality", ContentRichTextBox.Text);
-            db.openConnection();
-
-            try
-            {
-                command.ExecuteNonQuery();
-                MessageBox.Show("Врач добавлен");
-                this.Close();
-
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            db.closeConnection();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,7 +36,7 @@ namespace BooleanTrainer.AddForms
             OpenFileDialog opendlg = new OpenFileDialog();
             if (opendlg.ShowDialog() == DialogResult.OK)
             {
-                Image image = Image.FromFile(opendlg.FileName);
+                image = Image.FromFile(opendlg.FileName);
                 pictureBox1.Image = image;
             }
         }

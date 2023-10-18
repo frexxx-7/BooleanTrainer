@@ -1,6 +1,6 @@
 ﻿namespace BooleanTrainer.Forms
 {
-    partial class Testscs
+    partial class Tests
     {
         /// <summary>
         /// Required designer variable.

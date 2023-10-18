@@ -64,6 +64,8 @@
       <DependentUpon>AddTheory.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DB.cs" />
+    <Compile Include="Classes\Theory\TheoryBLL.cs" />
+    <Compile Include="Classes\Theory\TheoryFunc.cs" />
     <Compile Include="Forms\Autorization.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,11 +84,11 @@
     <Compile Include="Forms\Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Testscs.cs">
+    <Compile Include="Forms\Tests.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Testscs.Designer.cs">
-      <DependentUpon>Testscs.cs</DependentUpon>
+    <Compile Include="Forms\Tests.Designer.cs">
+      <DependentUpon>Tests.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Theory.cs">
       <SubType>Form</SubType>
