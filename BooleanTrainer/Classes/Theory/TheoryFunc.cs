@@ -23,7 +23,7 @@ namespace BooleanTrainer.Classes.Theory
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
                 {
-                    if (header == null || content == null || img == null)
+                    if (header == null || content == null)
                     {
                         MessageBox.Show("Вы не ввели данные", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

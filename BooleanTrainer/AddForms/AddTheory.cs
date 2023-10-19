@@ -1,4 +1,5 @@
 ﻿using BooleanTrainer.Classes;
+using BooleanTrainer.Classes.Theory;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,21 @@ namespace BooleanTrainer.AddForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            
+            TheoryBLL objbll = new TheoryBLL();
+
+            if (HeaderTextBox.Text.Length == 0 || ContentTextBox.Text.Length ==0)
+            {
+                MessageBox.Show("Некоторые данные введены некорректно");
+            }
+            else
+            if (objbll.SaveItem(HeaderTextBox.Text, ContentTextBox.Text, image))
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ошибка!");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

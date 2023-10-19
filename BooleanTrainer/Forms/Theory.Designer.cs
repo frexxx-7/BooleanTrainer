@@ -40,7 +40,8 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.ContentPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.ContentPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2ResizeForm1 = new Guna.UI2.WinForms.Guna2ResizeForm(this.components);
             this.TheoryPanel.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -175,10 +176,18 @@
             // 
             // ContentPanel
             // 
-            this.ContentPanel.Location = new System.Drawing.Point(30, 33);
+            this.ContentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ContentPanel.AutoScroll = true;
+            this.ContentPanel.Location = new System.Drawing.Point(36, 31);
             this.ContentPanel.Name = "ContentPanel";
-            this.ContentPanel.Size = new System.Drawing.Size(916, 327);
+            this.ContentPanel.Size = new System.Drawing.Size(910, 328);
             this.ContentPanel.TabIndex = 0;
+            // 
+            // guna2ResizeForm1
+            // 
+            this.guna2ResizeForm1.TargetForm = this;
             // 
             // Theory
             // 
@@ -217,6 +226,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
-        private Guna.UI2.WinForms.Guna2Panel ContentPanel;
+        private System.Windows.Forms.FlowLayoutPanel ContentPanel;
+        private Guna.UI2.WinForms.Guna2ResizeForm guna2ResizeForm1;
     }
 }

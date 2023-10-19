@@ -13,6 +13,7 @@ namespace BooleanTrainer.UserControls
     public partial class TheoryControl : UserControl
     {
         private string id, header, content;
+        public Image image;
 
         private void TheoryControl_Load(object sender, EventArgs e)
         {
@@ -21,12 +22,6 @@ namespace BooleanTrainer.UserControls
             ContentLabel.Text = content;
         }
 
-        private void TheoryControlPanel_MouseHover(object sender, EventArgs e)
-        {
-            TheoryControlPanel.FillColor = (Color)ColorConverter.ConvertFromString("#FFDFD991");
-        }
-
-        public Image image;
         public TheoryControl(string id, string header, string content)
         {
             InitializeComponent();

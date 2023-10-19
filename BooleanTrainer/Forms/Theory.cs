@@ -60,12 +60,11 @@ namespace BooleanTrainer.Forms
                         {
                             Guna2Panel panel = new Guna2Panel
                             {
-                                Name = $"Product+{panelNumber}",
-                                Size = new Size(440, 500),
-                                Padding = new System.Windows.Forms.Padding(bottom: 3, left: 0, top: 0, right: 0),
+                                Name = $"Theory+{panelNumber}",
+                                Size = new Size(570, 190),
                             };
                             listItems[i] = new TheoryControl(row["id"].ToString(), row["header"].ToString(), row["content"].ToString());
-
+                            listItems[i].Dock = DockStyle.Top;
 
                             if (row["image"] != System.DBNull.Value)
                             {

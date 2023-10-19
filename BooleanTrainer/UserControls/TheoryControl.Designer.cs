@@ -110,7 +110,6 @@
             this.TheoryControlPanel.Name = "TheoryControlPanel";
             this.TheoryControlPanel.Size = new System.Drawing.Size(570, 190);
             this.TheoryControlPanel.TabIndex = 5;
-            this.TheoryControlPanel.MouseHover += new System.EventHandler(this.TheoryControlPanel_MouseHover);
             // 
             // TheoryControl
             // 
