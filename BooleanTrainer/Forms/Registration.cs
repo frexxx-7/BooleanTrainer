@@ -19,10 +19,6 @@ namespace BooleanTrainer.Forms
             InitializeComponent();
         }
 
-        private void Registration_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void RegistrationButton_Click(object sender, EventArgs e)
         {
@@ -53,7 +49,7 @@ namespace BooleanTrainer.Forms
                     MessageBox.Show("Аккаунт создан!");
                     Autorization auth = new Autorization();
                     auth.Show();
-                    this.Hide();
+                    this.Close();
                 }
                 else
                 {
@@ -67,7 +63,7 @@ namespace BooleanTrainer.Forms
         private void BackButton_Click(object sender, EventArgs e)
         {
             new Autorization().Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

@@ -34,10 +34,12 @@
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.TheoryControlPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.TheoryControlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel2
@@ -51,6 +53,7 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(400, 111);
             this.flowLayoutPanel2.TabIndex = 4;
+            this.flowLayoutPanel2.Click += new System.EventHandler(this.flowLayoutPanel2_Click);
             // 
             // ContentLabel
             // 
@@ -61,6 +64,7 @@
             this.ContentLabel.Size = new System.Drawing.Size(52, 16);
             this.ContentLabel.TabIndex = 2;
             this.ContentLabel.Text = "Content";
+            this.ContentLabel.Click += new System.EventHandler(this.ContentLabel_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -72,6 +76,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(400, 38);
             this.flowLayoutPanel1.TabIndex = 3;
+            this.flowLayoutPanel1.Click += new System.EventHandler(this.flowLayoutPanel1_Click);
             // 
             // HeaderLabel
             // 
@@ -83,6 +88,7 @@
             this.HeaderLabel.Size = new System.Drawing.Size(107, 25);
             this.HeaderLabel.TabIndex = 1;
             this.HeaderLabel.Text = "Название";
+            this.HeaderLabel.Click += new System.EventHandler(this.HeaderLabel_Click);
             // 
             // pictureBox
             // 
@@ -94,6 +100,7 @@
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // TheoryControlPanel
             // 
@@ -101,6 +108,7 @@
             this.TheoryControlPanel.BorderRadius = 15;
             this.TheoryControlPanel.BorderThickness = 2;
             this.TheoryControlPanel.Controls.Add(this.flowLayoutPanel2);
+            this.TheoryControlPanel.Controls.Add(this.iconPictureBox1);
             this.TheoryControlPanel.Controls.Add(this.pictureBox);
             this.TheoryControlPanel.Controls.Add(this.flowLayoutPanel1);
             this.TheoryControlPanel.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -110,6 +118,21 @@
             this.TheoryControlPanel.Name = "TheoryControlPanel";
             this.TheoryControlPanel.Size = new System.Drawing.Size(570, 190);
             this.TheoryControlPanel.TabIndex = 5;
+            this.TheoryControlPanel.Click += new System.EventHandler(this.TheoryControlPanel_Click);
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.Red;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.Red;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 26;
+            this.iconPictureBox1.Location = new System.Drawing.Point(16, 161);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(26, 26);
+            this.iconPictureBox1.TabIndex = 3;
+            this.iconPictureBox1.TabStop = false;
             // 
             // TheoryControl
             // 
@@ -125,6 +148,7 @@
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.TheoryControlPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -136,5 +160,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label HeaderLabel;
         private Guna.UI2.WinForms.Guna2Panel TheoryControlPanel;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

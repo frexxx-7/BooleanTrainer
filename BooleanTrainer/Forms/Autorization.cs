@@ -66,7 +66,7 @@ namespace BooleanTrainer
             this.Hide();
         }
 
-        private void Autorization_FormClosed(object sender, FormClosedEventArgs e)
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

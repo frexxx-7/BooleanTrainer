@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BooleanTrainer.AddForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,22 @@ namespace BooleanTrainer.Forms
         {
             InitializeComponent();
             this.idUser = idUser;
+        }
+
+        private void ReturnButton_Click(object sender, EventArgs e)
+        {
+            new Menu(idUser).Show();
+            this.Close();
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            new AddTests().Show();
         }
     }
 }

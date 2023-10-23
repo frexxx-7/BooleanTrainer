@@ -20,10 +20,6 @@ namespace BooleanTrainer.Forms
             this.id = id;
         }
 
-        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -33,13 +29,18 @@ namespace BooleanTrainer.Forms
         private void TheoryButton_Click(object sender, EventArgs e)
         {
             new Theory(id).Show();
-            this.Hide();
+            this.Close();
         }
 
         private void TestsButton_Click(object sender, EventArgs e)
         {
             new Tests(id).Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
