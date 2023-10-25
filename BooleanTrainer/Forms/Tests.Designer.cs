@@ -206,6 +206,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Testscs";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Tests_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.TestsPanel.ResumeLayout(false);
             this.ResumeLayout(false);

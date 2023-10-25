@@ -77,7 +77,7 @@ namespace BooleanTrainer.AddForms
                 }
                 command.Parameters.AddWithValue("@header", HeaderTextBox.Text);
                 command.Parameters.AddWithValue("@dataTest", fileContent);
-                command.Parameters.AddWithValue("@image", image);
+                command.Parameters.AddWithValue("@image", ms.Length != 0 ? ms.ToArray() : null);
 
 
                 db.openConnection();

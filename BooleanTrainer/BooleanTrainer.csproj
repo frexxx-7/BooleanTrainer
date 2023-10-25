@@ -77,6 +77,8 @@
       <DependentUpon>AddTheory.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DB.cs" />
+    <Compile Include="Classes\Test\TestBLL.cs" />
+    <Compile Include="Classes\Test\TestFunc.cs" />
     <Compile Include="Classes\Theory\TheoryBLL.cs" />
     <Compile Include="Classes\Theory\TheoryFunc.cs" />
     <Compile Include="Forms\Autorization.cs">
@@ -117,6 +119,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\TestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TestControl.Designer.cs">
+      <DependentUpon>TestControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\TheoryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,6 +165,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\TestControl.resx">
+      <DependentUpon>TestControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TheoryControl.resx">
       <DependentUpon>TheoryControl.cs</DependentUpon>
     </EmbeddedResource>
