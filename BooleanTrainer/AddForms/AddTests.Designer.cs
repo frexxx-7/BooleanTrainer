@@ -46,13 +46,13 @@
             this.CreateTestPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.Page2Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.QuestionPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.AOPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.CheckBoxAO = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.QuestionTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.AddQuestionButton = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.QuestionTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.CheckBoxAO = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.AOPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Page1Panel.SuspendLayout();
@@ -169,6 +169,7 @@
             this.button1.TabIndex = 29;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -223,7 +224,7 @@
             this.Page1Panel.Controls.Add(this.button1);
             this.Page1Panel.Controls.Add(this.label4);
             this.Page1Panel.Controls.Add(this.HeaderTextBox);
-            this.Page1Panel.Location = new System.Drawing.Point(1109, 49);
+            this.Page1Panel.Location = new System.Drawing.Point(1100, 33);
             this.Page1Panel.Name = "Page1Panel";
             this.Page1Panel.Size = new System.Drawing.Size(738, 243);
             this.Page1Panel.TabIndex = 33;
@@ -233,8 +234,8 @@
             this.CreateTestPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CreateTestPanel.Controls.Add(this.Page2Panel);
             this.CreateTestPanel.Controls.Add(this.Page1Panel);
+            this.CreateTestPanel.Controls.Add(this.Page2Panel);
             this.CreateTestPanel.Location = new System.Drawing.Point(12, 87);
             this.CreateTestPanel.Name = "CreateTestPanel";
             this.CreateTestPanel.Size = new System.Drawing.Size(1182, 606);
@@ -268,6 +269,99 @@
             this.QuestionPanel.Size = new System.Drawing.Size(973, 483);
             this.QuestionPanel.TabIndex = 33;
             // 
+            // guna2Button2
+            // 
+            this.guna2Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button2.BorderRadius = 5;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.guna2Button2.Location = new System.Drawing.Point(776, 438);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(174, 38);
+            this.guna2Button2.TabIndex = 40;
+            this.guna2Button2.Text = "Сохранить вопрос";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // AOPanel
+            // 
+            this.AOPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AOPanel.AutoScroll = true;
+            this.AOPanel.Location = new System.Drawing.Point(15, 132);
+            this.AOPanel.Name = "AOPanel";
+            this.AOPanel.Size = new System.Drawing.Size(935, 300);
+            this.AOPanel.TabIndex = 39;
+            this.AOPanel.Visible = false;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.guna2Button1.Location = new System.Drawing.Point(719, 73);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(231, 38);
+            this.guna2Button1.TabIndex = 34;
+            this.guna2Button1.Text = "Добавить вариант ответа";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // CheckBoxAO
+            // 
+            this.CheckBoxAO.AutoSize = true;
+            this.CheckBoxAO.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CheckBoxAO.CheckedState.BorderRadius = 0;
+            this.CheckBoxAO.CheckedState.BorderThickness = 0;
+            this.CheckBoxAO.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CheckBoxAO.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.CheckBoxAO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
+            this.CheckBoxAO.Location = new System.Drawing.Point(15, 73);
+            this.CheckBoxAO.Name = "CheckBoxAO";
+            this.CheckBoxAO.Size = new System.Drawing.Size(281, 24);
+            this.CheckBoxAO.TabIndex = 38;
+            this.CheckBoxAO.Text = "Несколько вариантов ответа";
+            this.CheckBoxAO.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
+            this.CheckBoxAO.UncheckedState.BorderRadius = 0;
+            this.CheckBoxAO.UncheckedState.BorderThickness = 0;
+            this.CheckBoxAO.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
+            // 
+            // QuestionTextBox
+            // 
+            this.QuestionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.QuestionTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.QuestionTextBox.BorderRadius = 6;
+            this.QuestionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.QuestionTextBox.DefaultText = "";
+            this.QuestionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.QuestionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.QuestionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.QuestionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.QuestionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.QuestionTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.QuestionTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(255)))));
+            this.QuestionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.QuestionTextBox.Location = new System.Drawing.Point(15, 23);
+            this.QuestionTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.QuestionTextBox.Name = "QuestionTextBox";
+            this.QuestionTextBox.PasswordChar = '\0';
+            this.QuestionTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.QuestionTextBox.PlaceholderText = "Вопрос";
+            this.QuestionTextBox.SelectedText = "";
+            this.QuestionTextBox.Size = new System.Drawing.Size(935, 33);
+            this.QuestionTextBox.TabIndex = 37;
+            // 
             // AddQuestionButton
             // 
             this.AddQuestionButton.BorderRadius = 5;
@@ -296,98 +390,6 @@
             this.label1.Size = new System.Drawing.Size(176, 25);
             this.label1.TabIndex = 35;
             this.label1.Text = "Создание теста";
-            // 
-            // QuestionTextBox
-            // 
-            this.QuestionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.QuestionTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.QuestionTextBox.BorderRadius = 6;
-            this.QuestionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.QuestionTextBox.DefaultText = "";
-            this.QuestionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.QuestionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.QuestionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.QuestionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.QuestionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.QuestionTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.QuestionTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(255)))));
-            this.QuestionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.QuestionTextBox.Location = new System.Drawing.Point(15, 23);
-            this.QuestionTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.QuestionTextBox.Name = "QuestionTextBox";
-            this.QuestionTextBox.PasswordChar = '\0';
-            this.QuestionTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.QuestionTextBox.PlaceholderText = "Вопрос";
-            this.QuestionTextBox.SelectedText = "";
-            this.QuestionTextBox.Size = new System.Drawing.Size(935, 33);
-            this.QuestionTextBox.TabIndex = 37;
-            // 
-            // CheckBoxAO
-            // 
-            this.CheckBoxAO.AutoSize = true;
-            this.CheckBoxAO.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CheckBoxAO.CheckedState.BorderRadius = 0;
-            this.CheckBoxAO.CheckedState.BorderThickness = 0;
-            this.CheckBoxAO.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CheckBoxAO.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CheckBoxAO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
-            this.CheckBoxAO.Location = new System.Drawing.Point(15, 73);
-            this.CheckBoxAO.Name = "CheckBoxAO";
-            this.CheckBoxAO.Size = new System.Drawing.Size(281, 24);
-            this.CheckBoxAO.TabIndex = 38;
-            this.CheckBoxAO.Text = "Несколько вариантов ответа";
-            this.CheckBoxAO.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
-            this.CheckBoxAO.UncheckedState.BorderRadius = 0;
-            this.CheckBoxAO.UncheckedState.BorderThickness = 0;
-            this.CheckBoxAO.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.guna2Button1.Location = new System.Drawing.Point(719, 73);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(231, 38);
-            this.guna2Button1.TabIndex = 34;
-            this.guna2Button1.Text = "Добавить вариант ответа";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // AOPanel
-            // 
-            this.AOPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AOPanel.AutoScroll = true;
-            this.AOPanel.Location = new System.Drawing.Point(15, 132);
-            this.AOPanel.Name = "AOPanel";
-            this.AOPanel.Size = new System.Drawing.Size(935, 300);
-            this.AOPanel.TabIndex = 39;
-            this.AOPanel.Visible = false;
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BorderRadius = 5;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.guna2Button2.Location = new System.Drawing.Point(776, 438);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(174, 38);
-            this.guna2Button2.TabIndex = 40;
-            this.guna2Button2.Text = "Сохранить вопрос";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // AddTests
             // 

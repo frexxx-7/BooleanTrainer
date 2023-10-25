@@ -1,5 +1,7 @@
-﻿using FontAwesome.Sharp;
+﻿using BooleanTrainer.Classes;
+using FontAwesome.Sharp;
 using Guna.UI2.WinForms;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +20,8 @@ namespace BooleanTrainer.AddForms
         private int countPage = 1;
         private int countPanel = 0;
         private int countQuestions = 1;
+        private System.Drawing.Image image;
+
         public AddTests()
         {
             InitializeComponent();
@@ -54,6 +58,37 @@ namespace BooleanTrainer.AddForms
                 if (countPage >= 2)
                 {
                     NextButton.Text = "Сохранить";
+                }
+            }
+            else
+            {
+                string filePath = AppDomain.CurrentDomain.BaseDirectory + "dataTest.txt";
+                string fileContent = File.ReadAllText(filePath);
+
+                DB db = new DB();
+
+                MySqlCommand command = new MySqlCommand($"INSERT into test (header, dataTest, image) " +
+                    $"values(@header, @dataTest, @image)", db.getConnection());
+
+                MemoryStream ms = new MemoryStream();
+                if (image != null)
+                {
+                    image.Save(ms, image.RawFormat);
+                }
+                command.Parameters.AddWithValue("@header", HeaderTextBox.Text);
+                command.Parameters.AddWithValue("@dataTest", fileContent);
+                command.Parameters.AddWithValue("@image", image);
+
+
+                db.openConnection();
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception exep)
+                {
+                    MessageBox.Show(exep.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -155,6 +190,16 @@ namespace BooleanTrainer.AddForms
             countPanel = 0;
             countQuestions++;
             QuestionPanel.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opendlg = new OpenFileDialog();
+            if (opendlg.ShowDialog() == DialogResult.OK)
+            {
+                image = Image.FromFile(opendlg.FileName);
+                pictureBox1.Image = image;
+            }
         }
     }
 }
