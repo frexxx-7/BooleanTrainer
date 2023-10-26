@@ -1,4 +1,6 @@
 ﻿using BooleanTrainer.Classes;
+using BooleanTrainer.Classes.Theory;
+using BooleanTrainer.UserControls;
 using FontAwesome.Sharp;
 using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
@@ -22,10 +24,50 @@ namespace BooleanTrainer.AddForms
         private int countPanel = 0;
         private int countQuestions = 1;
         private System.Drawing.Image image;
+        string checkedTheory = "";
 
         public AddTests()
         {
             InitializeComponent();
+        }
+        private void GenerateTheory()
+        {
+            TheoryBLL objbll = new TheoryBLL();
+
+            DataTable dt = objbll.GetItems();
+
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    TheoryControlForTest[] listItems = new TheoryControlForTest[dt.Rows.Count];
+
+                    for (int i = 0; i < 1; i++)
+                    {
+                        int panelNumber = 0;
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            Guna2Panel panel = new Guna2Panel
+                            {
+                                Name = $"Theory+{panelNumber}",
+                                Size = new Size(480, 190),
+                            };
+                            listItems[i] = new TheoryControlForTest(row["id"].ToString(), row["header"].ToString(), row["content"].ToString());
+                            listItems[i].Dock = DockStyle.Top;
+
+                            if (row["image"] != System.DBNull.Value)
+                            {
+                                MemoryStream ms = new MemoryStream((byte[])row["image"]);
+                                listItems[i].image = new Bitmap(ms);
+                            }
+                            panel.Controls.Add(listItems[i]);
+                            TheoryPanel.Controls.Add(panel);
+                            panelNumber++;
+                        }
+
+                    }
+                }
+            }
         }
         private void checkPage()
         {
@@ -40,6 +82,11 @@ namespace BooleanTrainer.AddForms
                     Page2Panel.Dock = DockStyle.Fill;
                     Page2Panel.Visible = true;
                     break;
+                case 3:
+                    CreateTestPanel.Controls.Add(Page3Panel);
+                    Page3Panel.Dock = DockStyle.Fill;
+                    Page3Panel.Visible = true;
+                    break;
                 default:
                     break;
             }
@@ -47,8 +94,23 @@ namespace BooleanTrainer.AddForms
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (countPage != 2)
+            if (countPage != 3)
             {
+                if (countPage == 2)
+                {
+                    checkedTheory = "";
+                    foreach (Control controlPanel in TheoryPanel.Controls)
+                    {
+                        foreach(Control theoryControl in controlPanel.Controls)
+                        {
+                            if((theoryControl as TheoryControlForTest).IsCheckBoxChecked)
+                            {
+                                checkedTheory += (theoryControl as TheoryControlForTest).id + ",";
+                            }
+                        }
+                    }
+                    checkedTheory = checkedTheory.Substring(0, checkedTheory.Length - 1);
+                }
                 CreateTestPanel.Controls.Clear();
                 countPage++;
                 checkPage();
@@ -56,7 +118,7 @@ namespace BooleanTrainer.AddForms
                 {
                     CancelButton.Text = "Назад";
                 }
-                if (countPage >= 2)
+                if (countPage >= 3)
                 {
                     NextButton.Text = "Сохранить";
                 }
@@ -68,8 +130,8 @@ namespace BooleanTrainer.AddForms
 
                 DB db = new DB();
 
-                MySqlCommand command = new MySqlCommand($"INSERT into test (header, dataTest, image) " +
-                    $"values(@header, @dataTest, @image)", db.getConnection());
+                MySqlCommand command = new MySqlCommand($"INSERT into test (header, dataTest, image, checkedTheory) " +
+                    $"values(@header, @dataTest, @image, @checkedTheory)", db.getConnection());
 
                 MemoryStream ms = new MemoryStream();
                 if (image != null)
@@ -79,6 +141,7 @@ namespace BooleanTrainer.AddForms
                 command.Parameters.AddWithValue("@header", HeaderTextBox.Text);
                 command.Parameters.AddWithValue("@dataTest", fileContent);
                 command.Parameters.AddWithValue("@image", ms.Length != 0 ? ms.ToArray() : null);
+                command.Parameters.AddWithValue("@checkedTheory", checkedTheory);
 
 
                 db.openConnection();
@@ -120,6 +183,7 @@ namespace BooleanTrainer.AddForms
         {
             checkPage();
             File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "dataTest.txt", string.Empty);
+            GenerateTheory();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

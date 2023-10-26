@@ -137,6 +137,12 @@
     <Compile Include="UserControls\TheoryControl.Designer.cs">
       <DependentUpon>TheoryControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TheoryControlForTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TheoryControlForTest.Designer.cs">
+      <DependentUpon>TheoryControlForTest.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddForms\AddTests.resx">
       <DependentUpon>AddTests.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TheoryControl.resx">
       <DependentUpon>TheoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TheoryControlForTest.resx">
+      <DependentUpon>TheoryControlForTest.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

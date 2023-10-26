@@ -17,7 +17,7 @@ namespace BooleanTrainer.Classes.Test
             DB db = new DB();
 
             db.openConnection();
-            string query = $"SELECT id, header, image FROM test";
+            string query = $"SELECT id, header, image, checkedTheory FROM test";
             MySqlCommand cmd = new MySqlCommand(query, db.getConnection());
             try
             {

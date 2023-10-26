@@ -46,7 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.BackButton = new Guna.UI2.WinForms.Guna2Button();
-            this.CheckButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.QuestionPanel.SuspendLayout();
             this.SuspendLayout();
@@ -244,31 +243,12 @@
             this.BackButton.Text = "Назад";
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // CheckButton
-            // 
-            this.CheckButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CheckButton.BorderRadius = 5;
-            this.CheckButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.CheckButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.CheckButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.CheckButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CheckButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
-            this.CheckButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.CheckButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.CheckButton.Location = new System.Drawing.Point(881, 441);
-            this.CheckButton.Name = "CheckButton";
-            this.CheckButton.Size = new System.Drawing.Size(174, 38);
-            this.CheckButton.TabIndex = 35;
-            this.CheckButton.Text = "Проверить тест";
-            this.CheckButton.Click += new System.EventHandler(this.CheckButton_Click);
-            // 
             // PassingTheTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1068, 626);
-            this.Controls.Add(this.CheckButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.ResLbl);
             this.Controls.Add(this.label3);
@@ -307,6 +287,5 @@
         private System.Windows.Forms.Label HeaderLabel;
         private Guna.UI2.WinForms.Guna2Button BackButton;
         private Guna.UI2.WinForms.Guna2Button NextButton;
-        private Guna.UI2.WinForms.Guna2Button CheckButton;
     }
 }

@@ -123,13 +123,21 @@ namespace BooleanTrainer.Forms
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            numberQuestion++;
-            checkRes(countPanel);
-            loadQuestion();
-            if (numberQuestion == countQuestion)
+            if (NextButton.Text != "Завершить")
             {
+                numberQuestion++;
+                checkRes(countPanel);
+                loadQuestion();
+                if (numberQuestion == countQuestion)
+                {
+                    NextButton.Text = "Завершить";
+                }
+            }
+            else
+            {
+                label3.Visible = true;
+                ResLbl.Text = checkRes(countPanel).ToString();
                 NextButton.Visible = false;
-                CheckButton.Visible = true;
             }
         }
         private void loadQuestion()
@@ -210,8 +218,7 @@ namespace BooleanTrainer.Forms
 
         private void CheckButton_Click(object sender, EventArgs e)
         {
-            label3.Visible = true;
-            ResLbl.Text = checkRes(countPanel).ToString();
+           
         }
     }
 }

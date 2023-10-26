@@ -44,7 +44,7 @@
             this.CancelButton = new Guna.UI2.WinForms.Guna2Button();
             this.Page1Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.CreateTestPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.Page2Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Page3Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.QuestionPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.AOPanel = new Guna.UI2.WinForms.Guna2Panel();
@@ -53,12 +53,16 @@
             this.QuestionTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.AddQuestionButton = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Page2Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TheoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Page1Panel.SuspendLayout();
             this.CreateTestPanel.SuspendLayout();
-            this.Page2Panel.SuspendLayout();
+            this.Page3Panel.SuspendLayout();
             this.QuestionPanel.SuspendLayout();
+            this.Page2Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -224,7 +228,7 @@
             this.Page1Panel.Controls.Add(this.button1);
             this.Page1Panel.Controls.Add(this.label4);
             this.Page1Panel.Controls.Add(this.HeaderTextBox);
-            this.Page1Panel.Location = new System.Drawing.Point(1100, 33);
+            this.Page1Panel.Location = new System.Drawing.Point(1100, 15);
             this.Page1Panel.Name = "Page1Panel";
             this.Page1Panel.Size = new System.Drawing.Size(738, 243);
             this.Page1Panel.TabIndex = 33;
@@ -234,25 +238,26 @@
             this.CreateTestPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CreateTestPanel.Controls.Add(this.Page1Panel);
             this.CreateTestPanel.Controls.Add(this.Page2Panel);
+            this.CreateTestPanel.Controls.Add(this.Page1Panel);
+            this.CreateTestPanel.Controls.Add(this.Page3Panel);
             this.CreateTestPanel.Location = new System.Drawing.Point(12, 87);
             this.CreateTestPanel.Name = "CreateTestPanel";
             this.CreateTestPanel.Size = new System.Drawing.Size(1182, 606);
             this.CreateTestPanel.TabIndex = 34;
             // 
-            // Page2Panel
+            // Page3Panel
             // 
-            this.Page2Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Page3Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Page2Panel.Controls.Add(this.QuestionPanel);
-            this.Page2Panel.Controls.Add(this.AddQuestionButton);
-            this.Page2Panel.Location = new System.Drawing.Point(16, 15);
-            this.Page2Panel.Name = "Page2Panel";
-            this.Page2Panel.Size = new System.Drawing.Size(1025, 570);
-            this.Page2Panel.TabIndex = 34;
-            this.Page2Panel.Visible = false;
+            this.Page3Panel.Controls.Add(this.QuestionPanel);
+            this.Page3Panel.Controls.Add(this.AddQuestionButton);
+            this.Page3Panel.Location = new System.Drawing.Point(1100, 307);
+            this.Page3Panel.Name = "Page3Panel";
+            this.Page3Panel.Size = new System.Drawing.Size(1025, 570);
+            this.Page3Panel.TabIndex = 34;
+            this.Page3Panel.Visible = false;
             // 
             // QuestionPanel
             // 
@@ -391,6 +396,38 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "Создание теста";
             // 
+            // Page2Panel
+            // 
+            this.Page2Panel.Controls.Add(this.TheoryPanel);
+            this.Page2Panel.Controls.Add(this.label2);
+            this.Page2Panel.Location = new System.Drawing.Point(17, 29);
+            this.Page2Panel.Name = "Page2Panel";
+            this.Page2Panel.Size = new System.Drawing.Size(1035, 556);
+            this.Page2Panel.TabIndex = 35;
+            this.Page2Panel.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(255)))));
+            this.label2.Location = new System.Drawing.Point(432, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(281, 25);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Выберите теорию для теста";
+            // 
+            // TheoryPanel
+            // 
+            this.TheoryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TheoryPanel.Location = new System.Drawing.Point(34, 59);
+            this.TheoryPanel.Name = "TheoryPanel";
+            this.TheoryPanel.Size = new System.Drawing.Size(986, 472);
+            this.TheoryPanel.TabIndex = 30;
+            // 
             // AddTests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -413,9 +450,11 @@
             this.Page1Panel.ResumeLayout(false);
             this.Page1Panel.PerformLayout();
             this.CreateTestPanel.ResumeLayout(false);
-            this.Page2Panel.ResumeLayout(false);
+            this.Page3Panel.ResumeLayout(false);
             this.QuestionPanel.ResumeLayout(false);
             this.QuestionPanel.PerformLayout();
+            this.Page2Panel.ResumeLayout(false);
+            this.Page2Panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,7 +478,7 @@
         private Guna.UI2.WinForms.Guna2Panel Page1Panel;
         private Guna.UI2.WinForms.Guna2Panel CreateTestPanel;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Panel Page2Panel;
+        private Guna.UI2.WinForms.Guna2Panel Page3Panel;
         private Guna.UI2.WinForms.Guna2Button AddQuestionButton;
         private Guna.UI2.WinForms.Guna2Panel QuestionPanel;
         private Guna.UI2.WinForms.Guna2TextBox QuestionTextBox;
@@ -447,5 +486,8 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Panel AOPanel;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Panel Page2Panel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FlowLayoutPanel TheoryPanel;
     }
 }
