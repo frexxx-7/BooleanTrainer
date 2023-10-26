@@ -67,7 +67,7 @@ namespace BooleanTrainer.Forms
                                 Name = $"Tset+{panelNumber}",
                                 Size = new Size(480, 190),
                             };
-                            listItems[i] = new TestControl(idUser, row["id"].ToString(), row["header"].ToString());
+                            listItems[i] = new TestControl(idUser, row["id"].ToString(), row["header"].ToString(), this);
                             listItems[i].Dock = DockStyle.Top;
 
                             if (row["image"] != System.DBNull.Value)

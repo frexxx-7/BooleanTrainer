@@ -54,6 +54,7 @@
             this.TheoryControlPanel.Name = "TheoryControlPanel";
             this.TheoryControlPanel.Size = new System.Drawing.Size(636, 192);
             this.TheoryControlPanel.TabIndex = 6;
+            this.TheoryControlPanel.Click += new System.EventHandler(this.TheoryControlPanel_Click);
             // 
             // iconPictureBox1
             // 

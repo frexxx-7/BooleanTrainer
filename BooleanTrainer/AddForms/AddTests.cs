@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Shapes;
 
 namespace BooleanTrainer.AddForms
 {
@@ -118,6 +119,7 @@ namespace BooleanTrainer.AddForms
         private void AddTests_Load(object sender, EventArgs e)
         {
             checkPage();
+            File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "dataTest.txt", string.Empty);
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
