@@ -138,6 +138,27 @@ namespace BooleanTrainer.Forms
                 label3.Visible = true;
                 ResLbl.Text = checkRes(countPanel).ToString();
                 NextButton.Visible = false;
+
+                DB db = new DB();
+
+                MySqlCommand command = new MySqlCommand($"insert into passedTest (isUser, idTest, result) values ({idUser}, {idTest}, {result})", db.getConnection());
+
+
+                db.openConnection();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Аккаунт создан!");
+                    Autorization auth = new Autorization();
+                    auth.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка создания аккаунта");
+                }
+
+                db.closeConnection();
             }
         }
         private void loadQuestion()

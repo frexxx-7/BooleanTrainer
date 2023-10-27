@@ -1,6 +1,7 @@
 ﻿using BooleanTrainer.Classes;
 using BooleanTrainer.Forms;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,29 +20,52 @@ namespace BooleanTrainer.UserControls
         public Image image;
         private Form activeForm;
         private string checkedUserTheory = "";
+        private bool isPassed;
 
         private void TheoryControlPanel_Click(object sender, EventArgs e)
         {
-            checkUserCheckedTheory();
-            new PassingTheTest(idUser, idTest).Show();
-            activeForm.Close();
+            if (checkUserCheckedTheory())
+            {
+                new PassingTheTest(idUser, idTest).Show();
+                activeForm.Close();
+            }
+            else
+            {
+                new ViewTheoryNeedRead(idUser, checkedTheory.Split(',')).Show();
+            }
         }
 
         private void TestControl_Load(object sender, EventArgs e)
         {
             HeaderLabel.Text = header;
             pictureBox.Image = image;
+
+            if (isPassed)
+            {
+                iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Check;
+                iconPictureBox1.IconColor = Color.Green;
+            }
+            else
+            {
+                iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+                iconPictureBox1.IconColor = Color.Red;
+            }
         }
-        private void checkUserCheckedTheory()
+        private bool checkUserCheckedTheory()
         {
             checkUserTheory();
             string[] checkedTheoryArray = checkedTheory.Split(',');
             string[] checkedUserTheoryArray = checkedUserTheory.Split(',');
 
-
-            bool isSubset = checkedTheoryArray.SequenceEqual(checkedUserTheoryArray.Take(checkedTheoryArray.Length));
-
-            MessageBox.Show(isSubset.ToString());
+            bool isSubset = checkedTheoryArray.Intersect(checkedUserTheoryArray).Count() == checkedTheoryArray.Length;
+            if (checkedTheory != "")
+            {
+                return isSubset;
+            }
+            else
+            {
+                return true;
+            }
         }
         private void checkUserTheory()
         {
@@ -62,7 +86,7 @@ namespace BooleanTrainer.UserControls
             db.closeConnection();
         }
 
-        public TestControl(string idUser, string idTest, string header, Form activeForm, string checkedTheory)
+        public TestControl(string idUser, string idTest, string header, Form activeForm, string checkedTheory, bool isPassed)
         {
             InitializeComponent();
             this.header = header;
@@ -70,6 +94,7 @@ namespace BooleanTrainer.UserControls
             this.idTest = idTest;
             this.activeForm = activeForm;
             this.checkedTheory = checkedTheory;
+            this.isPassed = isPassed;
         }
     }
 }
