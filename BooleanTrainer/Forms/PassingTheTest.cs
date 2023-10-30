@@ -141,21 +141,18 @@ namespace BooleanTrainer.Forms
 
                 DB db = new DB();
 
-                MySqlCommand command = new MySqlCommand($"insert into passedTest (isUser, idTest, result) values ({idUser}, {idTest}, {result})", db.getConnection());
+                MySqlCommand command = new MySqlCommand($"insert into passedTest (idUser, idTest, result) values ({idUser}, {idTest}, {result})", db.getConnection());
 
 
                 db.openConnection();
 
                 if (command.ExecuteNonQuery() == 1)
                 {
-                    MessageBox.Show("Аккаунт создан!");
-                    Autorization auth = new Autorization();
-                    auth.Show();
-                    this.Close();
+                    MessageBox.Show("Тест пройден");
                 }
                 else
                 {
-                    MessageBox.Show("Ошибка создания аккаунта");
+                    MessageBox.Show("Ошибка прохождения теста");
                 }
 
                 db.closeConnection();

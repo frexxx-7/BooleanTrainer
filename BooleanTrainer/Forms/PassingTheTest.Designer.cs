@@ -259,7 +259,9 @@
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PassingTheTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PassingTheTest";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PassingTheTest_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.QuestionPanel.ResumeLayout(false);
