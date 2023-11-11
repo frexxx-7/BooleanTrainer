@@ -41,9 +41,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.NextButton = new Guna.UI2.WinForms.Guna2Button();
-            this.CancelButton = new Guna.UI2.WinForms.Guna2Button();
+            this.CanceledButton = new Guna.UI2.WinForms.Guna2Button();
             this.Page1Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.CreateTestPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.Page2Panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.TheoryPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.Page3Panel = new Guna.UI2.WinForms.Guna2Panel();
             this.QuestionPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
@@ -53,16 +56,16 @@
             this.QuestionTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.AddQuestionButton = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Page2Panel = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TheoryPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.CategoryComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.AddCategoryButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Page1Panel.SuspendLayout();
             this.CreateTestPanel.SuspendLayout();
+            this.Page2Panel.SuspendLayout();
             this.Page3Panel.SuspendLayout();
             this.QuestionPanel.SuspendLayout();
-            this.Page2Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -204,33 +207,36 @@
             this.NextButton.Text = "Далее";
             this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
-            // CancelButton
+            // CanceledButton
             // 
-            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CancelButton.BorderRadius = 5;
-            this.CancelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.CancelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.CancelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.CancelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CancelButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
-            this.CancelButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.CancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.CancelButton.Location = new System.Drawing.Point(12, 714);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(138, 38);
-            this.CancelButton.TabIndex = 32;
-            this.CancelButton.Text = "Отмена";
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CanceledButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CanceledButton.BorderRadius = 5;
+            this.CanceledButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CanceledButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CanceledButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CanceledButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CanceledButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
+            this.CanceledButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CanceledButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.CanceledButton.Location = new System.Drawing.Point(12, 714);
+            this.CanceledButton.Name = "CanceledButton";
+            this.CanceledButton.Size = new System.Drawing.Size(138, 38);
+            this.CanceledButton.TabIndex = 32;
+            this.CanceledButton.Text = "Отмена";
+            this.CanceledButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // Page1Panel
             // 
+            this.Page1Panel.Controls.Add(this.AddCategoryButton);
+            this.Page1Panel.Controls.Add(this.label3);
+            this.Page1Panel.Controls.Add(this.CategoryComboBox);
             this.Page1Panel.Controls.Add(this.pictureBox1);
             this.Page1Panel.Controls.Add(this.button1);
             this.Page1Panel.Controls.Add(this.label4);
             this.Page1Panel.Controls.Add(this.HeaderTextBox);
-            this.Page1Panel.Location = new System.Drawing.Point(1100, 15);
+            this.Page1Panel.Location = new System.Drawing.Point(1138, 17);
             this.Page1Panel.Name = "Page1Panel";
-            this.Page1Panel.Size = new System.Drawing.Size(738, 243);
+            this.Page1Panel.Size = new System.Drawing.Size(738, 397);
             this.Page1Panel.TabIndex = 33;
             // 
             // CreateTestPanel
@@ -238,13 +244,45 @@
             this.CreateTestPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CreateTestPanel.Controls.Add(this.Page2Panel);
             this.CreateTestPanel.Controls.Add(this.Page1Panel);
+            this.CreateTestPanel.Controls.Add(this.Page2Panel);
             this.CreateTestPanel.Controls.Add(this.Page3Panel);
             this.CreateTestPanel.Location = new System.Drawing.Point(12, 87);
             this.CreateTestPanel.Name = "CreateTestPanel";
             this.CreateTestPanel.Size = new System.Drawing.Size(1182, 606);
             this.CreateTestPanel.TabIndex = 34;
+            // 
+            // Page2Panel
+            // 
+            this.Page2Panel.Controls.Add(this.TheoryPanel);
+            this.Page2Panel.Controls.Add(this.label2);
+            this.Page2Panel.Location = new System.Drawing.Point(17, 29);
+            this.Page2Panel.Name = "Page2Panel";
+            this.Page2Panel.Size = new System.Drawing.Size(1035, 556);
+            this.Page2Panel.TabIndex = 35;
+            this.Page2Panel.Visible = false;
+            // 
+            // TheoryPanel
+            // 
+            this.TheoryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TheoryPanel.Location = new System.Drawing.Point(34, 59);
+            this.TheoryPanel.Name = "TheoryPanel";
+            this.TheoryPanel.Size = new System.Drawing.Size(986, 472);
+            this.TheoryPanel.TabIndex = 30;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(255)))));
+            this.label2.Location = new System.Drawing.Point(432, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(281, 25);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Выберите теорию для теста";
             // 
             // Page3Panel
             // 
@@ -253,7 +291,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Page3Panel.Controls.Add(this.QuestionPanel);
             this.Page3Panel.Controls.Add(this.AddQuestionButton);
-            this.Page3Panel.Location = new System.Drawing.Point(1100, 307);
+            this.Page3Panel.Location = new System.Drawing.Point(1138, 437);
             this.Page3Panel.Name = "Page3Panel";
             this.Page3Panel.Size = new System.Drawing.Size(1025, 570);
             this.Page3Panel.TabIndex = 34;
@@ -396,37 +434,49 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "Создание теста";
             // 
-            // Page2Panel
+            // CategoryComboBox
             // 
-            this.Page2Panel.Controls.Add(this.TheoryPanel);
-            this.Page2Panel.Controls.Add(this.label2);
-            this.Page2Panel.Location = new System.Drawing.Point(17, 29);
-            this.Page2Panel.Name = "Page2Panel";
-            this.Page2Panel.Size = new System.Drawing.Size(1035, 556);
-            this.Page2Panel.TabIndex = 35;
-            this.Page2Panel.Visible = false;
+            this.CategoryComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.CategoryComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CategoryComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CategoryComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CategoryComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.CategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.CategoryComboBox.ItemHeight = 30;
+            this.CategoryComboBox.Location = new System.Drawing.Point(180, 242);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(502, 36);
+            this.CategoryComboBox.TabIndex = 31;
             // 
-            // label2
+            // label3
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(255)))));
-            this.label2.Location = new System.Drawing.Point(432, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(281, 25);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Выберите теорию для теста";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(255)))));
+            this.label3.Location = new System.Drawing.Point(9, 242);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 25);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Категория:";
             // 
-            // TheoryPanel
+            // AddCategoryButton
             // 
-            this.TheoryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TheoryPanel.Location = new System.Drawing.Point(34, 59);
-            this.TheoryPanel.Name = "TheoryPanel";
-            this.TheoryPanel.Size = new System.Drawing.Size(986, 472);
-            this.TheoryPanel.TabIndex = 30;
+            this.AddCategoryButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddCategoryButton.BorderRadius = 5;
+            this.AddCategoryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.AddCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.AddCategoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.AddCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.AddCategoryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
+            this.AddCategoryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddCategoryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.AddCategoryButton.Location = new System.Drawing.Point(14, 307);
+            this.AddCategoryButton.Name = "AddCategoryButton";
+            this.AddCategoryButton.Size = new System.Drawing.Size(224, 38);
+            this.AddCategoryButton.TabIndex = 33;
+            this.AddCategoryButton.Text = "Добавить категорию";
+            this.AddCategoryButton.Click += new System.EventHandler(this.AddCategoryButton_Click);
             // 
             // AddTests
             // 
@@ -436,7 +486,7 @@
             this.ClientSize = new System.Drawing.Size(1220, 765);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CreateTestPanel);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CanceledButton);
             this.Controls.Add(this.NextButton);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -450,11 +500,11 @@
             this.Page1Panel.ResumeLayout(false);
             this.Page1Panel.PerformLayout();
             this.CreateTestPanel.ResumeLayout(false);
+            this.Page2Panel.ResumeLayout(false);
+            this.Page2Panel.PerformLayout();
             this.Page3Panel.ResumeLayout(false);
             this.QuestionPanel.ResumeLayout(false);
             this.QuestionPanel.PerformLayout();
-            this.Page2Panel.ResumeLayout(false);
-            this.Page2Panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,7 +523,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2Button CancelButton;
+        private Guna.UI2.WinForms.Guna2Button CanceledButton;
         private Guna.UI2.WinForms.Guna2Button NextButton;
         private Guna.UI2.WinForms.Guna2Panel Page1Panel;
         private Guna.UI2.WinForms.Guna2Panel CreateTestPanel;
@@ -489,5 +539,8 @@
         private Guna.UI2.WinForms.Guna2Panel Page2Panel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel TheoryPanel;
+        private Guna.UI2.WinForms.Guna2Button AddCategoryButton;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2ComboBox CategoryComboBox;
     }
 }

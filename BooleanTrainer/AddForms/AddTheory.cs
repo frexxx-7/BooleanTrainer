@@ -36,7 +36,7 @@ namespace BooleanTrainer.AddForms
                 MessageBox.Show("Некоторые данные введены некорректно");
             }
             else
-            if (objbll.SaveItem(HeaderTextBox.Text, ContentTextBox.Text, image))
+            if (objbll.SaveItem(HeaderTextBox.Text, ContentTextBox.Text, image, (CategoryComboBox.SelectedItem as ComboBoxItem).Value.ToString()))
             {
                 this.Close();
             }
@@ -54,6 +54,34 @@ namespace BooleanTrainer.AddForms
                 image = Image.FromFile(opendlg.FileName);
                 pictureBox1.Image = image;
             }
+        }
+
+        private void AddCategoryButton_Click(object sender, EventArgs e)
+        {
+            new AddCategory().Show();
+        }
+        private void loadInfoAboutCategory()
+        {
+            DB db = new DB();
+            string queryInfo = $"SELECT * FROM category ";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = $" {reader[1]}";
+                item.Value = reader[0];
+                CategoryComboBox.Items.Add(item);
+            }
+            reader.Close();
+        }
+
+        private void AddTheory_Load(object sender, EventArgs e)
+        {
+            loadInfoAboutCategory();
         }
     }
 }

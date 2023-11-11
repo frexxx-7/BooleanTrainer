@@ -12,12 +12,12 @@ namespace BooleanTrainer.Classes.Theory
 {
     internal class TheoryBLL
     {
-        public bool SaveItem(string header, string content, Image img)
+        public bool SaveItem(string header, string content, Image img, string idCategory)
         {
             try
             {
                 TheoryFunc objdal = new TheoryFunc();
-                return objdal.AddItemsToTable(header,content,img);
+                return objdal.AddItemsToTable(header,content,img, idCategory);
             }
             catch (Exception e)
             {

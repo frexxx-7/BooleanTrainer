@@ -116,7 +116,7 @@ namespace BooleanTrainer.AddForms
                 checkPage();
                 if (countPage > 1)
                 {
-                    CancelButton.Text = "Назад";
+                    CanceledButton.Text = "Назад";
                 }
                 if (countPage >= 3)
                 {
@@ -130,8 +130,8 @@ namespace BooleanTrainer.AddForms
 
                 DB db = new DB();
 
-                MySqlCommand command = new MySqlCommand($"INSERT into test (header, dataTest, image, checkedTheory) " +
-                    $"values(@header, @dataTest, @image, @checkedTheory)", db.getConnection());
+                MySqlCommand command = new MySqlCommand($"INSERT into test (header, dataTest, image, checkedTheory, idCategory) " +
+                    $"values(@header, @dataTest, @image, @checkedTheory, @idCategory)", db.getConnection());
 
                 MemoryStream ms = new MemoryStream();
                 if (image != null)
@@ -142,6 +142,7 @@ namespace BooleanTrainer.AddForms
                 command.Parameters.AddWithValue("@dataTest", fileContent);
                 command.Parameters.AddWithValue("@image", ms.Length != 0 ? ms.ToArray() : null);
                 command.Parameters.AddWithValue("@checkedTheory", checkedTheory);
+                command.Parameters.AddWithValue("@idCategory", (CategoryComboBox.SelectedItem as ComboBoxItem).Value);
 
 
                 db.openConnection();
@@ -149,6 +150,8 @@ namespace BooleanTrainer.AddForms
                 try
                 {
                     command.ExecuteNonQuery();
+                    MessageBox.Show("Тест добавлен");
+                    this.Close();
                 }
                 catch (Exception exep)
                 {
@@ -159,13 +162,13 @@ namespace BooleanTrainer.AddForms
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            if (CancelButton.Text == "Назад")
+            if (CanceledButton.Text == "Назад")
             {
                 CreateTestPanel.Controls.Clear();
                 countPage--;
                 if (countPage <= 1)
                 {
-                    CancelButton.Text = "Отмена";
+                    CanceledButton.Text = "Отмена";
                 }
                 if(NextButton.Text == "Сохранить")
                 {
@@ -184,6 +187,27 @@ namespace BooleanTrainer.AddForms
             checkPage();
             File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "dataTest.txt", string.Empty);
             GenerateTheory();
+
+            loadInfoAboutCategory();
+        }
+
+        private void loadInfoAboutCategory()
+        {
+            DB db = new DB();
+            string queryInfo = $"SELECT * FROM category ";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = $" {reader[1]}";
+                item.Value = reader[0];
+                CategoryComboBox.Items.Add(item);
+            }
+            reader.Close();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -266,6 +290,11 @@ namespace BooleanTrainer.AddForms
                 image = Image.FromFile(opendlg.FileName);
                 pictureBox1.Image = image;
             }
+        }
+
+        private void AddCategoryButton_Click(object sender, EventArgs e)
+        {
+            new AddCategory().Show();
         }
     }
 }
