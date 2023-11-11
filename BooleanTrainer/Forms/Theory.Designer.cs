@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.AddButton = new Guna.UI2.WinForms.Guna2Button();
             this.ReturnButton = new Guna.UI2.WinForms.Guna2Button();
             this.TheoryPanel = new Guna.UI2.WinForms.Guna2Panel();
@@ -39,7 +38,6 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ResizeForm1 = new Guna.UI2.WinForms.Guna2ResizeForm(this.components);
             this.TheoryPanel.SuspendLayout();
@@ -57,11 +55,6 @@
             this.label1.Size = new System.Drawing.Size(85, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Теория";
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
             // 
             // AddButton
             // 
@@ -173,12 +166,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(973, 44);
             this.guna2Panel1.TabIndex = 10;
             // 
-            // guna2ShadowForm1
-            // 
-            this.guna2ShadowForm1.BorderRadius = 15;
-            this.guna2ShadowForm1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(255)))));
-            this.guna2ShadowForm1.TargetForm = this;
-            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.DockForm = true;
@@ -217,7 +204,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button AddButton;
         private Guna.UI2.WinForms.Guna2Panel TheoryPanel;
         private Guna.UI2.WinForms.Guna2Button ReturnButton;
@@ -225,7 +211,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
-        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private System.Windows.Forms.FlowLayoutPanel ContentPanel;
         private Guna.UI2.WinForms.Guna2ResizeForm guna2ResizeForm1;

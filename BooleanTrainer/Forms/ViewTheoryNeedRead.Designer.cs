@@ -36,9 +36,9 @@
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.TheoryPanel.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -122,12 +122,6 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // guna2ShadowForm1
-            // 
-            this.guna2ShadowForm1.BorderRadius = 15;
-            this.guna2ShadowForm1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(255)))));
-            this.guna2ShadowForm1.TargetForm = this;
-            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.DockForm = true;
@@ -146,6 +140,12 @@
             this.label1.Size = new System.Drawing.Size(549, 25);
             this.label1.TabIndex = 12;
             this.label1.Text = "Для этого теста нужно пройти следующую теорию:";
+            // 
+            // guna2ShadowForm1
+            // 
+            this.guna2ShadowForm1.BorderRadius = 15;
+            this.guna2ShadowForm1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(255)))));
+            this.guna2ShadowForm1.TargetForm = this;
             // 
             // ViewTheoryNeedRead
             // 
@@ -176,8 +176,8 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
     }
 }

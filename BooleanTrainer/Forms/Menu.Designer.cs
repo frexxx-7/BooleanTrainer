@@ -40,6 +40,7 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.ProfileButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,12 +171,30 @@
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox2.TabIndex = 8;
             // 
+            // ProfileButton
+            // 
+            this.ProfileButton.BorderRadius = 5;
+            this.ProfileButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ProfileButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ProfileButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ProfileButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ProfileButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
+            this.ProfileButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ProfileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.ProfileButton.Location = new System.Drawing.Point(162, 304);
+            this.ProfileButton.Name = "ProfileButton";
+            this.ProfileButton.Size = new System.Drawing.Size(138, 38);
+            this.ProfileButton.TabIndex = 12;
+            this.ProfileButton.Text = "Профиль";
+            this.ProfileButton.Click += new System.EventHandler(this.ProfileButton_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(459, 533);
+            this.Controls.Add(this.ProfileButton);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.TestsButton);
@@ -203,5 +222,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2Button ProfileButton;
     }
 }

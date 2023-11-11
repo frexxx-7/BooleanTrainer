@@ -42,5 +42,11 @@ namespace BooleanTrainer.Forms
         {
             Application.Exit();
         }
+
+        private void ProfileButton_Click(object sender, EventArgs e)
+        {
+            new Profile(id).Show();
+            this.Close();
+        }
     }
 }
