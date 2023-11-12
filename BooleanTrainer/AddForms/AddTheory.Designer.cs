@@ -251,7 +251,6 @@
             // 
             // AddCategoryButton
             // 
-            this.AddCategoryButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddCategoryButton.BorderRadius = 5;
             this.AddCategoryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.AddCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
