@@ -48,5 +48,11 @@ namespace BooleanTrainer.Forms
             new Profile(id).Show();
             this.Close();
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            new PassedTheTest(id).Show();
+            this.Close();
+        }
     }
 }

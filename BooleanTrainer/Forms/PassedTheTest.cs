@@ -1,10 +1,6 @@
-﻿using BooleanTrainer.AddForms;
-using BooleanTrainer.Classes;
-using BooleanTrainer.Classes.Test;
-using BooleanTrainer.Classes.Theory;
+﻿using BooleanTrainer.Classes.Test;
 using BooleanTrainer.UserControls;
 using Guna.UI2.WinForms;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,16 +14,16 @@ using System.Windows.Forms;
 
 namespace BooleanTrainer.Forms
 {
-    public partial class Tests : Form
+    public partial class PassedTheTest : Form
     {
         private string idUser;
-        public Tests(string idUser)
+        public PassedTheTest(string idUser)
         {
             InitializeComponent();
             this.idUser = idUser;
         }
 
-        private void ReturnButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
             new Menu(idUser).Show();
             this.Close();
@@ -37,27 +33,17 @@ namespace BooleanTrainer.Forms
         {
             Application.Exit();
         }
-
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            new AddTests().Show();
-        }
-
-        private void Tests_Load(object sender, EventArgs e)
-        {
-            GenerateTest();
-        }
         private void GenerateTest()
         {
             TestBLL objbll = new TestBLL();
 
-            DataTable dt = objbll.GetItems(null);
+            DataTable dt = objbll.GetItems(idUser);
 
             if (dt != null)
             {
                 if (dt.Rows.Count > 0)
                 {
-                    TestControl[] listItems = new TestControl[dt.Rows.Count];
+                    PassedTestControl[] listItems = new PassedTestControl[dt.Rows.Count];
 
                     for (int i = 0; i < 1; i++)
                     {
@@ -69,7 +55,7 @@ namespace BooleanTrainer.Forms
                                 Name = $"Test+{panelNumber}",
                                 Size = new Size(480, 190),
                             };
-                            listItems[i] = new TestControl(idUser, row["id"].ToString(), row["header"].ToString(), this, row["checkedTheory"].ToString(), checkIsPassedTest(row["id"].ToString()));
+                            listItems[i] = new PassedTestControl(idUser, row["id"].ToString(), row["header"].ToString());
                             listItems[i].Dock = DockStyle.Top;
 
                             if (row["image"] != System.DBNull.Value)
@@ -87,22 +73,9 @@ namespace BooleanTrainer.Forms
             }
         }
 
-        private bool checkIsPassedTest(string idTest)
+        private void PassedTheTest_Load(object sender, EventArgs e)
         {
-            DB db = new DB();
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand($"SELECT * FROM passedTest WHERE idUser = {idUser} AND idTest = {idTest}", db.getConnection());
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-            if (table.Rows.Count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            GenerateTest();
         }
     }
 }

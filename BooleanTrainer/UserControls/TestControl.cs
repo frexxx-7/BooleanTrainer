@@ -71,7 +71,7 @@ namespace BooleanTrainer.UserControls
         {
             DB db = new DB();
             string queryInfo = $"SELECT GROUP_CONCAT(idTheory) from passedTheory " +
-                $"where idUSer = {idUser}";
+                $"where idUser = {idUser}";
             MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
 
             db.openConnection();

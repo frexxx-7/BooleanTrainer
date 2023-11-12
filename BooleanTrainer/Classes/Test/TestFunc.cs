@@ -12,12 +12,17 @@ namespace BooleanTrainer.Classes.Test
 {
     internal class TestFunc
     {
-        public DataTable ReadItems()
+        public DataTable ReadItems(string idUser)
         {
             DB db = new DB();
 
             db.openConnection();
-            string query = $"SELECT id, header, image, checkedTheory FROM test";
+            string query = idUser!=null ?
+                $"SELECT test.id, header, image, checkedTheory FROM passedTest " +
+                $"left join test on test.id = passedTest.idTest " +
+                $"where idUser = {idUser}"
+                :
+                $"SELECT id, header, image, checkedTheory FROM test";
             MySqlCommand cmd = new MySqlCommand(query, db.getConnection());
             try
             {

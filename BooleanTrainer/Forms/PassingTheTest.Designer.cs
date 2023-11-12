@@ -161,7 +161,7 @@
             this.NextButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
             this.NextButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.NextButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.NextButton.Location = new System.Drawing.Point(706, 398);
+            this.NextButton.Location = new System.Drawing.Point(710, 398);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(127, 28);
             this.NextButton.TabIndex = 34;

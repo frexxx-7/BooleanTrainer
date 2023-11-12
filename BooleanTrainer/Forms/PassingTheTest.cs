@@ -108,6 +108,10 @@ namespace BooleanTrainer.Forms
                     }
                 }
             }
+            if (numberQuestion == countQuestion)
+            {
+                NextButton.Text = "Завершить";
+            }
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -128,7 +132,7 @@ namespace BooleanTrainer.Forms
                 numberQuestion++;
                 checkRes(countPanel);
                 loadQuestion();
-                if (numberQuestion == countQuestion)
+                if (numberQuestion >= countQuestion)
                 {
                     NextButton.Text = "Завершить";
                 }

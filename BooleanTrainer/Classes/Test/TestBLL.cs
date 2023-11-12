@@ -12,12 +12,12 @@ namespace BooleanTrainer.Classes.Test
 {
     internal class TestBLL
     {
-        public DataTable GetItems()
+        public DataTable GetItems(string idUser)
         {
             try
             {
                 TestFunc objdal = new TestFunc();
-                return objdal.ReadItems();
+                return objdal.ReadItems(idUser);
             }
             catch (Exception e)
             {
