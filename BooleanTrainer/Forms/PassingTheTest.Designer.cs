@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.BackButton = new Guna.UI2.WinForms.Guna2Button();
+            this.OutputButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.QuestionPanel.SuspendLayout();
             this.SuspendLayout();
@@ -230,12 +231,31 @@
             this.BackButton.Text = "Назад";
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // OutputButton
+            // 
+            this.OutputButton.BorderRadius = 5;
+            this.OutputButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.OutputButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.OutputButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.OutputButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.OutputButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(115)))), ((int)(((byte)(166)))));
+            this.OutputButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.OutputButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.OutputButton.Location = new System.Drawing.Point(893, 448);
+            this.OutputButton.Name = "OutputButton";
+            this.OutputButton.Size = new System.Drawing.Size(127, 28);
+            this.OutputButton.TabIndex = 41;
+            this.OutputButton.Text = "Вывод";
+            this.OutputButton.Visible = false;
+            this.OutputButton.Click += new System.EventHandler(this.OutputButton_Click);
+            // 
             // PassingTheTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1068, 626);
+            this.Controls.Add(this.OutputButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.ResLbl);
             this.Controls.Add(this.label3);
@@ -274,5 +294,6 @@
         private System.Windows.Forms.Label HeaderLabel;
         private Guna.UI2.WinForms.Guna2Button BackButton;
         private Guna.UI2.WinForms.Guna2Button NextButton;
+        private Guna.UI2.WinForms.Guna2Button OutputButton;
     }
 }

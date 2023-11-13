@@ -17,12 +17,12 @@ namespace BooleanTrainer.UserControls
     {
         private string header, idUser, idTest;
         public Image image;
-        string result;
+        string result, answers;
 
         private void getResultPassedTheTest()
         {
             DB db = new DB();
-            string queryInfo = $"SELECT result from passedTest " +
+            string queryInfo = $"SELECT result, answers from passedTest " +
                 $"where idUser = {idUser} and idTest = {idTest}";
             MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
 
@@ -32,6 +32,7 @@ namespace BooleanTrainer.UserControls
             while (reader.Read())
             {
                 result = reader[0].ToString();
+                answers = reader[1].ToString();
             }
             reader.Close();
 
@@ -40,17 +41,17 @@ namespace BooleanTrainer.UserControls
 
         private void TheoryControlPanel_Click(object sender, EventArgs e)
         {
-            new PassedTestInfo(header, result).Show();
+            new PassedTestInfo(header, result,idTest, answers).Show();
         }
 
         private void HeaderLabel_Click(object sender, EventArgs e)
         {
-            new PassedTestInfo(header, result).Show();
+            new PassedTestInfo(header, result, idTest, answers).Show();
         }
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
-            new PassedTestInfo(header, result).Show();
+            new PassedTestInfo(header, result, idTest, answers).Show();
         }
 
         private void PassedTestControl_Load(object sender, EventArgs e)

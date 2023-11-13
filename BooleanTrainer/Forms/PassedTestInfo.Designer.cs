@@ -202,6 +202,7 @@
             this.Name = "PassedTestInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PassedTestInfo";
+            this.Load += new System.EventHandler(this.PassedTestInfo_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

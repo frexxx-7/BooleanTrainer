@@ -1,4 +1,5 @@
 ﻿using BooleanTrainer.Classes;
+using Microsoft.Office.Interop.Word;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace BooleanTrainer.Forms
         private int countQuestion = 0;
         private int countPanel = 0;
         private int result = 0;
+        private string answers;
+        private string textTest = null;
         public PassingTheTest(string idUser, string idTest)
         {
             InitializeComponent();
@@ -74,6 +77,9 @@ namespace BooleanTrainer.Forms
                             label.Name = $"textboxQuest{numberQuestion}";
                             label.Text = parts[2];
                             label.Dock = DockStyle.Top;
+
+                            answers += $"Вопрос {parts[1]} ";
+
                             QuestionNamePanel.Controls.Add(label);
                         }
                         else
@@ -89,7 +95,7 @@ namespace BooleanTrainer.Forms
                             if (bool.Parse(parts[2]))
                             {
                                 countPanel++;
-                                CheckBox checkbox = new CheckBox();
+                                System.Windows.Forms.CheckBox checkbox = new System.Windows.Forms.CheckBox();
                                 checkbox.Name = $"checkboxTrue{countPanel}";
                                 checkbox.Dock = DockStyle.Top;
                                 checkbox.Text = parts[1];
@@ -98,7 +104,7 @@ namespace BooleanTrainer.Forms
                             if (bool.Parse(parts[2]) == false)
                             {
                                 countPanel++;
-                                CheckBox checkbox = new CheckBox();
+                                System.Windows.Forms.CheckBox checkbox = new System.Windows.Forms.CheckBox();
                                 checkbox.Name = $"checkboxFalse{countPanel}";
                                 checkbox.Dock = DockStyle.Top;
                                 checkbox.Text = parts[1];
@@ -122,11 +128,18 @@ namespace BooleanTrainer.Forms
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
+            foreach (Control control in AOPanel.Controls)
+            {
+                if (control is System.Windows.Forms.CheckBox checkBox && checkBox.Checked)
+                {
+                    answers += $"Ответ: {checkBox.Text} \n";
+                }
+            }
             if (NextButton.Text != "Завершить")
             {
                 numberQuestion++;
@@ -139,13 +152,14 @@ namespace BooleanTrainer.Forms
             }
             else
             {
+                OutputButton.Visible = true;
                 label3.Visible = true;
                 ResLbl.Text = checkRes(countPanel).ToString();
                 NextButton.Visible = false;
 
                 DB db = new DB();
 
-                MySqlCommand command = new MySqlCommand($"insert into passedTest (idUser, idTest, result) values ({idUser}, {idTest}, {result})", db.getConnection());
+                MySqlCommand command = new MySqlCommand($"insert into passedTest (idUser, idTest, result, answers) values ({idUser}, {idTest}, {result}, '{answers}')", db.getConnection());
 
 
                 db.openConnection();
@@ -159,7 +173,7 @@ namespace BooleanTrainer.Forms
                     MessageBox.Show("Ошибка прохождения теста");
                 }
 
-                db.closeConnection();
+                db.closeConnection();          
             }
         }
         private void loadQuestion()
@@ -187,6 +201,8 @@ namespace BooleanTrainer.Forms
                             label.Dock = DockStyle.Top;
                             QuestionNamePanel.Controls.Add(label);
 
+                            answers += $"Вопрос {parts[1]} ";
+
                             isGenerate = true;
                         }
                         else
@@ -201,7 +217,7 @@ namespace BooleanTrainer.Forms
                             if (bool.Parse(parts[2]))
                             {
                                 countPanel++;
-                                CheckBox checkbox = new CheckBox();
+                                System.Windows.Forms.CheckBox checkbox = new System.Windows.Forms.CheckBox();
                                 checkbox.Name = $"checkboxTrue{countPanel}";
                                 checkbox.Dock = DockStyle.Top;
                                 checkbox.Text = parts[1];
@@ -210,12 +226,34 @@ namespace BooleanTrainer.Forms
                             if (bool.Parse(parts[2]) == false)
                             {
                                 countPanel++;
-                                CheckBox checkbox = new CheckBox();
+                                System.Windows.Forms.CheckBox checkbox = new System.Windows.Forms.CheckBox();
                                 checkbox.Name = $"checkboxFalse{countPanel}";
                                 checkbox.Dock = DockStyle.Top;
                                 checkbox.Text = parts[1];
                                 AOPanel.Controls.Add(checkbox);
                             }
+                        }
+                    }
+                }
+            }
+            foreach (string line in lines)
+            {
+                if (line.Length != 0)
+                {
+                    string[] parts = line.Split('|');
+                    if (parts[0] == "question")
+                    {
+                        textTest += $"\n Вопрос {parts[1]} {parts[2]} \n";
+                    }
+                    else
+                    {
+                        if (bool.Parse(parts[2]))
+                        {
+                            textTest += $"{parts[1]} Правильный ответ \n";
+                        }
+                        if (bool.Parse(parts[2]) == false)
+                        {
+                            textTest += $"{parts[1]} \n";
                         }
                     }
                 }
@@ -228,7 +266,7 @@ namespace BooleanTrainer.Forms
             {
                 if (this.Controls.Find($"checkboxTrue{i}", true).Length != 0)
                 {
-                    check = ((CheckBox)this.Controls.Find($"checkboxTrue{i}", true)[0]).Checked;
+                    check = ((System.Windows.Forms.CheckBox)this.Controls.Find($"checkboxTrue{i}", true)[0]).Checked;
                     if (check)
                     {
                         result++;
@@ -237,10 +275,64 @@ namespace BooleanTrainer.Forms
             }
             return result;
         }
-
+ 
         private void CheckButton_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void OutputButton_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+            Document sourceDoc = wordApp.Documents.Open(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Шаблон.docx"));
+            sourceDoc.Content.Copy();
+            Document targetDoc = wordApp.Documents.Add();
+            targetDoc.Content.Paste();
+
+            Bookmark bookmark = targetDoc.Bookmarks["Название"];
+            if (bookmark != null)
+            {
+                Range range = bookmark.Range;
+                range.Text = HeaderLabel.Text;
+
+            }
+
+            bookmark = targetDoc.Bookmarks["Результат"];
+            if (bookmark != null)
+            {
+                Range range = bookmark.Range;
+                range.Text = result.ToString();
+            }
+
+            bookmark = targetDoc.Bookmarks["Тест"];
+            if (bookmark != null)
+            {
+                Range range = bookmark.Range;
+                range.Text = textTest;
+            }
+
+
+            bookmark = targetDoc.Bookmarks["Ответы"];
+            if (bookmark != null)
+            {
+                Range range = bookmark.Range;
+                range.Text = answers;
+            }
+
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Документ Word (*.docx)|*.docx";
+            saveFileDialog1.Title = "Сохранить скопированный документ в";
+            saveFileDialog1.ShowDialog();
+
+            string targetPath = saveFileDialog1.FileName;
+
+            targetDoc.Close();
+            wordApp.Quit();
+
+            Microsoft.Office.Interop.Word.Application wordApplication = new Microsoft.Office.Interop.Word.Application();
+            Document wordDocument = wordApplication.Documents.Open(targetPath);
+            wordApplication.Visible = true;
         }
     }
 }

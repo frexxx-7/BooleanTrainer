@@ -9,27 +9,94 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using BooleanTrainer.Classes;
 using Microsoft.Office.Interop.Word;
+using MySql.Data.MySqlClient;
+using static Guna.UI2.Native.WinApi;
 
 namespace BooleanTrainer.Forms
 {
     public partial class PassedTestInfo : Form
     {
-        private string header, result;
-        public PassedTestInfo(string header, string result)
+        private string header, result, idTest;
+        private string textTest;
+        private string answers;
+        public PassedTestInfo(string header, string result, string idTest, string answers)
         {
             InitializeComponent();
 
             this.result = result;
             this.header = header;
+            this.idTest = idTest;
 
             HeaderLabel.Text = header;
             ResultLabel.Text = result;
+            this.answers = answers;
+        }
+
+        private void loadTestInfo()
+        {
+            string pathFile = AppDomain.CurrentDomain.BaseDirectory + "dataTest.txt";
+
+            using (StreamWriter writer = new StreamWriter(pathFile, false))
+            {
+                writer.Write("");
+            }
+            DB db = new DB();
+
+            string queryInfo = $"select * from test where test.id = {idTest}";
+
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            using (StreamWriter writer = new StreamWriter(pathFile, true))
+            {
+                while (reader.Read())
+                {
+                    HeaderLabel.Text = reader["header"].ToString();
+
+                    writer.WriteLine(reader.GetString(reader.GetOrdinal("dataTest")));
+                }
+            }
+            reader.Close();
+
+            db.closeConnection();
+            string[] lines = File.ReadAllLines(pathFile);
+
+            foreach (string line in lines)
+            {
+                if (line.Length != 0)
+                {
+                    string[] parts = line.Split('|');
+                    if (parts[0] == "question")
+                    {
+                        textTest += $"\n Вопрос {parts[1]} {parts[2]} \n";
+                    }
+                    else
+                    {
+                        if (bool.Parse(parts[2]))
+                        {
+                            textTest += $"{parts[1]} Правильный ответ \n";
+                        }
+                        if (bool.Parse(parts[2]) == false)
+                        {
+                            textTest += $"{parts[1]} \n";
+                        }
+                    }
+                }
+            }
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void PassedTestInfo_Load(object sender, EventArgs e)
+        {
+            loadTestInfo();
         }
 
         private void OutputButton_Click(object sender, EventArgs e)
@@ -53,6 +120,20 @@ namespace BooleanTrainer.Forms
             {
                 Range range = bookmark.Range;
                 range.Text = result;
+            }
+
+            bookmark = targetDoc.Bookmarks["Тест"];
+            if (bookmark != null)
+            {
+                Range range = bookmark.Range;
+                range.Text = textTest;
+            }
+
+            bookmark = targetDoc.Bookmarks["Ответы"];
+            if (bookmark != null)
+            {
+                Range range = bookmark.Range;
+                range.Text = answers;
             }
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
