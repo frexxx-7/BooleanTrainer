@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 13 2023 г., 00:15
--- Версия сервера: 10.3.22-MariaDB
--- Версия PHP: 7.1.33
+-- Время создания: Ноя 13 2023 г., 08:31
+-- Версия сервера: 5.6.51
+-- Версия PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `booleantrainer`
+-- База данных: `BooleanTrainer`
 --
 
 -- --------------------------------------------------------
@@ -36,6 +36,17 @@ CREATE TABLE `additionalinfouser` (
   `idAddress` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `additionalinfouser`
+--
+
+INSERT INTO `additionalinfouser` (`id`, `name`, `surname`, `patronymic`, `age`, `idAddress`) VALUES
+(1, 'Админ', 'Админ', 'Админ', 34, 3),
+(2, 'Иван', 'Иванов', 'Иванович', 15, 1),
+(3, 'Петр', 'Петров', 'Петрович', 45, 4),
+(4, 'Егор', 'Балалайка', 'Егорович', 25, 2),
+(5, 'Артем', 'Артемов', 'Артемович', 29, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +60,17 @@ CREATE TABLE `address` (
   `city` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `country` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `address`
+--
+
+INSERT INTO `address` (`id`, `house`, `street`, `city`, `country`) VALUES
+(1, '23', 'Мядельская', 'Минск', 'Беларусь'),
+(2, '87', 'Виленская', 'Молодечно', 'Беларусь'),
+(3, '56', 'Центральная', 'Брест', 'Беларусь'),
+(4, '13', 'Велий Гостинец', 'Витебск', 'Беларусь'),
+(5, '89', 'Партизанская', 'Полоцк', 'Беларусь');
 
 -- --------------------------------------------------------
 
@@ -90,7 +112,11 @@ CREATE TABLE `passedtest` (
 --
 
 INSERT INTO `passedtest` (`id`, `idUser`, `idTest`, `result`) VALUES
-(1, 1, 2, '5');
+(1, 1, 2, '5'),
+(2, 2, 1, '1'),
+(3, 2, 2, '2'),
+(4, 4, 4, '3'),
+(5, 4, 2, '1');
 
 -- --------------------------------------------------------
 
@@ -110,7 +136,13 @@ CREATE TABLE `passedtheory` (
 
 INSERT INTO `passedtheory` (`id`, `idUser`, `idTheory`) VALUES
 (1, 1, 1),
-(2, 1, 4);
+(2, 1, 4),
+(3, 2, 1),
+(4, 2, 2),
+(5, 2, 4),
+(6, 4, 1),
+(7, 4, 4),
+(8, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -121,8 +153,8 @@ INSERT INTO `passedtheory` (`id`, `idUser`, `idTheory`) VALUES
 CREATE TABLE `test` (
   `id` int(11) NOT NULL,
   `header` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `dataTest` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` mediumblob DEFAULT NULL,
+  `dataTest` text COLLATE utf8mb4_unicode_ci,
+  `image` mediumblob,
   `checkedTheory` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idCategory` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -150,8 +182,8 @@ INSERT INTO `test` (`id`, `header`, `dataTest`, `image`, `checkedTheory`, `idCat
 CREATE TABLE `theory` (
   `id` int(11) NOT NULL,
   `header` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` mediumblob DEFAULT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci,
+  `image` mediumblob,
   `idCategory` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -188,9 +220,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `password`, `dateRegistration`, `idAdditionalInfoUser`) VALUES
-(1, 'Admin', 'Admin', '17.10.2023', 2),
-(2, 'frexxx-7', 'frexxx-7', NULL, NULL),
-(3, '', '', NULL, NULL);
+(1, 'Admin', 'Admin', '17.10.2023', 1),
+(2, 'Ivan', 'ivan2001', '18.10.2023', 2),
+(3, 'Petr', 'petr-+3045', '18.10.2023', 3),
+(4, 'Egor', 'Egor-3345', NULL, 4),
+(5, 'Artem', 'Artem98394', NULL, 5);
 
 --
 -- Индексы сохранённых таблиц
@@ -260,13 +294,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `additionalinfouser`
 --
 ALTER TABLE `additionalinfouser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `category`
@@ -278,13 +312,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT для таблицы `passedtest`
 --
 ALTER TABLE `passedtest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `passedtheory`
 --
 ALTER TABLE `passedtheory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `test`
@@ -302,7 +336,7 @@ ALTER TABLE `theory`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
