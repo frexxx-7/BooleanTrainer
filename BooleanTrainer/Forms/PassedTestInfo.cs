@@ -102,6 +102,7 @@ namespace BooleanTrainer.Forms
         private void OutputButton_Click(object sender, EventArgs e)
         {
             Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+            wordApp.Visible = false;
             Document sourceDoc = wordApp.Documents.Open(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Шаблон.docx"));
             sourceDoc.Content.Copy();
             Document targetDoc = wordApp.Documents.Add();
@@ -135,20 +136,9 @@ namespace BooleanTrainer.Forms
                 Range range = bookmark.Range;
                 range.Text = answers;
             }
-
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "Документ Word (*.docx)|*.docx";
-            saveFileDialog1.Title = "Сохранить скопированный документ в";
-            saveFileDialog1.ShowDialog();
-
-            string targetPath = saveFileDialog1.FileName;
             
             targetDoc.Close();
             wordApp.Quit();
-
-            Microsoft.Office.Interop.Word.Application wordApplication = new Microsoft.Office.Interop.Word.Application();
-            Document wordDocument = wordApplication.Documents.Open(targetPath);
-            wordApplication.Visible = true;
         }
 
         private void BackButton_Click(object sender, EventArgs e)

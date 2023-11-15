@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 13 2023 г., 16:41
+-- Время создания: Ноя 15 2023 г., 13:20
 -- Версия сервера: 5.6.51
 -- Версия PHP: 7.2.34
 
@@ -123,7 +123,8 @@ INSERT INTO `passedtest` (`id`, `idUser`, `idTest`, `result`, `answers`) VALUES
 (8, 1, 2, '1', NULL),
 (9, 1, 2, '1', 'Вопрос 1 Ответ: Сравнивает два операнда \nВопрос 2 Ответ: true и false \nВопрос 3 Ответ: Операция вернет true \nВопрос 4 Ответ: не определено \nВопрос 5 Ответ: AND(3 < 5, NOT(false)) \n'),
 (10, 1, 2, '1', 'Вопрос 1 Ответ: Сравнивает два операнда \nВопрос 2 Ответ: true и false \nВопрос 3 Ответ: Операция вернет true \nВопрос 4 Ответ: не определено \nВопрос 5 Ответ: AND(3 < 5, NOT(false)) \n'),
-(11, 1, 2, '2', 'Вопрос 1 Ответ: Сравнивает два операнда \nВопрос 2 Ответ: true и false \nВопрос 3 Ответ: Операция вернет не определено \nВопрос 4 Ответ: false \nВопрос 5 Ответ: OR(NOT(true), true) \n');
+(11, 1, 2, '2', 'Вопрос 1 Ответ: Сравнивает два операнда \nВопрос 2 Ответ: true и false \nВопрос 3 Ответ: Операция вернет не определено \nВопрос 4 Ответ: false \nВопрос 5 Ответ: OR(NOT(true), true) \n'),
+(12, 1, 5, '1', 'Вопрос 1 Ответ: Операция, возвращающая true только если один из операндов равен true. \nВопрос 2 Ответ: true true - true, true false - false, false true - true, false false - false \nВопрос 3 Ответ: Результат будет равен true. \nВопрос 4 Ответ: Результат будет зависеть от значений других операндов. \nВопрос 5 Ответ: Проверка, является ли значение переменной равным нулю и истинным. \n');
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,8 @@ INSERT INTO `passedtheory` (`id`, `idUser`, `idTheory`) VALUES
 (5, 2, 4),
 (6, 4, 1),
 (7, 4, 4),
-(8, 4, 5);
+(8, 4, 5),
+(9, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -319,13 +321,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT для таблицы `passedtest`
 --
 ALTER TABLE `passedtest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `passedtheory`
 --
 ALTER TABLE `passedtheory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `test`

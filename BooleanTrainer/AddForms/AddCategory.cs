@@ -38,5 +38,10 @@ namespace BooleanTrainer.AddForms
 
             db.closeConnection();
         }
+
+        private void CanceledButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

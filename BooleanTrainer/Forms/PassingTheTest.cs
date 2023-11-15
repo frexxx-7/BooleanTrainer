@@ -319,20 +319,8 @@ namespace BooleanTrainer.Forms
                 range.Text = answers;
             }
 
-
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "Документ Word (*.docx)|*.docx";
-            saveFileDialog1.Title = "Сохранить скопированный документ в";
-            saveFileDialog1.ShowDialog();
-
-            string targetPath = saveFileDialog1.FileName;
-
             targetDoc.Close();
             wordApp.Quit();
-
-            Microsoft.Office.Interop.Word.Application wordApplication = new Microsoft.Office.Interop.Word.Application();
-            Document wordDocument = wordApplication.Documents.Open(targetPath);
-            wordApplication.Visible = true;
         }
     }
 }
